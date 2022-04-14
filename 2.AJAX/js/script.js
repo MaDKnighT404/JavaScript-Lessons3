@@ -58,13 +58,13 @@ inputRub.addEventListener('input', () => {
     //
     // СОБЫТИЯ..  readystatechange и load.  load срабатывает когда наше событие загрузилось и мы получили результат (тоесть 1 раз)
 
-    // это событие используется редко.
+    // readystatechange используется редко.
 
     // request.addEventListener("readystatechange", () => { // собитие отслеживает готовность запроса в текущий момент (отслеживает readyState. C 0 и до 4)
     //     if (request.status === 200 && request.readyState === 4) { // если статус запроса получен 200 ( ok ) и готовность объекта - 4 ( send ), то
     //         console.log(request.response);
     //         const data = JSON.parse(request.response); // распарсиваем ответ от сервера в JSON формат и присваем это значение переменной data
-    //         inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);//результат деления введеных рублей на курс валюты. toFixed(2) - сколько символов после точки
+    //         inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);//результат деления введеных рублей на курс валюты. toFixed(2)-символов после точки
     //     } else { // если что-то сломалось ОБЯЗАТЕЛЬНО оповещаем пользователя
     //         inputUsd.value = 'Что-то пошло не так';
     //     }

@@ -564,11 +564,8 @@ function postData (form) {  // создаем функцию, которая б�
         form.insertAdjacentElement('afterend', statusMessage);
 
 
-        const request = new XMLHttpRequest();
-        request.open('POST','server.php'); 
 
 
-        request.setRequestHeader('Content-type', 'application/json'); 
         const formData = new FormData(form); 
 
         // из-за того что объект полученные по FornData - спецефический, мы должны его сложным образом перегнать в JSON
@@ -580,21 +577,25 @@ function postData (form) {  // создаем функцию, которая б�
 
         // потом уже новый объект переводим в формат JSON
 
-        const json = JSON.stringify(obj);
 
 
-        request.send(json);  // вставляем сюда объект в json формате
-
-        request.addEventListener('load', () => { // отслеживаем конечную загрузку запроса
-            if(request.status === 200) {
-                console.log(request.response);
-                showThanksModal(message.success);
-                form.reset(); // очистить наши инпуты после загрузги запроса
-                statusMessage.remove();
-            } else {
-                showThanksModal(message.failure);
-            }
+        fetch('server.php', {
+            method: "POST",
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify(obj)
+        }).then(data => data.text())
+        .then(data => {
+            console.log(data);
+            showThanksModal(message.success);
+            statusMessage.remove(); // удаляем спинер
+        }).catch(() => {
+            showThanksModal(message.failure);
+        }).finally(() => {
+            form.reset(); // очистить наши инпуты после загрузги запроса
         });
+
+
+
     }); 
 }
     function showThanksModal (message) { // создаем функцию, при вызове которой будет появлятся новое модальное окно с благодарностью, что всё прошло успешно
@@ -620,6 +621,14 @@ function postData (form) {  // создаем функцию, которая б�
             closeWindow();
         }, 4000);
     }
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: "POST",
+        body: JSON.stringify({name: 'Alex'}),
+        headers: {'Content-type': 'application/json'}
+    })
+    .then(response => response.json())
+    .then(json => console.log(json));
+
 });
 
 

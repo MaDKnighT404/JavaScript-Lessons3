@@ -24,74 +24,9 @@
   ],
   "requests": [
     {
-      "name": "asdf",
-      "phone": "asf",
+      "name": "George",
+      "phone": "199391092",
       "id": 1
-    },
-    {
-      "name": "sdf",
-      "phone": "asf",
-      "id": 2
-    },
-    {
-      "name": "asdasd1",
-      "phone": "11123",
-      "id": 3
-    },
-    {
-      "name": "asdas",
-      "phone": "asd",
-      "id": 4
-    },
-    {
-      "name": "asdasd",
-      "phone": "asddas",
-      "id": 5
-    },
-    {
-      "name": "1123123",
-      "phone": "123123312",
-      "id": 6
-    },
-    {
-      "name": "etry",
-      "phone": "erty",
-      "id": 7
-    },
-    {
-      "name": "asdf",
-      "phone": "1123",
-      "id": 8
-    },
-    {
-      "name": "рвпр",
-      "phone": "12312",
-      "id": 9
-    },
-    {
-      "name": "фывфыв",
-      "phone": "123123",
-      "id": 10
-    },
-    {
-      "name": "фывфыв",
-      "phone": "14",
-      "id": 11
-    },
-    {
-      "name": "йцу",
-      "phone": "йцу",
-      "id": 12
-    },
-    {
-      "name": "цуйцу",
-      "phone": "йцу",
-      "id": 13
-    },
-    {
-      "name": "1231",
-      "phone": "123",
-      "id": 14
     }
   ]
 }

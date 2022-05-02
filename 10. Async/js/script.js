@@ -182,9 +182,9 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    getResource('http://localhost:3000/menu')
-        .then(data => {
-            data.forEach(({img, altimg, title, descr, price}) => {
+    getResource('http://localhost:3000/menu') // запрашиваем данные для карточек с нашего сервера db.json
+        .then(data => { // получаем объект с 3 массивами (карточками)
+            data.forEach(({img, altimg, title, descr, price}) => { // в аргумент можно было написать obj и в Menu card obj.img, obj.altimg. Но лучше деструктурировать
                 new MenuCard(img, altimg, title, descr, price, ".menu .container").render();
             });
         });
@@ -225,7 +225,7 @@ window.addEventListener('DOMContentLoaded', function() {
         bindPostData(item);
     });
 
-    const postData = async (url, data) => {
+    const postData = async (url, data) => { // создаем функцию с запросом
         let res = await fetch(url, {
             method: "POST",
             headers: {
@@ -237,17 +237,17 @@ window.addEventListener('DOMContentLoaded', function() {
         return await res.json();
     };
 
-    async function getResource(url) {
-        let res = await fetch(url);
+    async function getResource(url) {  // функция запроса на наш сервер в базу данных db.json 
+        let res = await fetch(url); // ожидание ответа
     
-        if (!res.ok) {
-            throw new Error(`Could not fetch ${url}, status: ${res.status}`);
+        if (!res.ok) { // если у свойства промиса ok не ответ 200, то мы будет ловить ошибку
+            throw new Error(`Could not fetch ${url}, status: ${res.status}`); // throw, чтобы выпала из функции 
         }
     
         return await res.json();
     }
 
-    function bindPostData(form) {
+    function bindPostData(form) { // переименовываем функцию
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 

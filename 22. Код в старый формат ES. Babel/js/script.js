@@ -64,7 +64,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 // дальше нужно создать файл babel.config.json и поместить туда объект.
 // но так как мы используем webpack, то положим этот объект прямо туда, перед этим добавив скрипт для работы с babel в свойстве module
-// устанавливаем npm пакет babel loader.  npm i --save-dev babal-loader
+// устанавливаем npm пакет babel loader.  npm i --save-dev babel-loader
 
 // заходим в package.json и создаем ещё одно свойство
 
